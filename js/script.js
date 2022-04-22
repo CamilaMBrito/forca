@@ -3,6 +3,7 @@ let palavraSecretaSorteada;
 let listaDinamica = [];
 let tentativas = 6;
 
+/* Lista de palavras e sua categoria */
 const palavras = [
     palavra001 = {
         nome: "ESTADO UNIDOS DA AMERICA",
@@ -505,6 +506,7 @@ const palavras = [
     },
 ];
 
+/* Realiza o sorteio das palavras que estão na lista */ 
 criarPalavraSecreta();
 function criarPalavraSecreta(){
     const indexPalavra = parseInt(Math.random() * palavras.length);
@@ -515,6 +517,7 @@ function criarPalavraSecreta(){
     console.log(palavraSecretaCategoria);
 }
 
+/* Apresenta a palavra sorteada e sua categoria na tela */
 montarPalavraNaTela();
 function montarPalavraNaTela(){
     const categoria = document.getElementById("categoria");
@@ -535,14 +538,35 @@ function montarPalavraNaTela(){
     }
 }
 
+/* Verifica a letra escolhida e aplica a função mudarStyleLetra */
 function verificaLetraEscolhida(letra){
     if (tentativas > 0){
         mudarStyleLetra("tecla-"+letra);
+        comparaListas(letra);
     }
     
 }
 
+/* Muda o estilo (cor de fundo) das letras para apresentar que aquela tecla já foi usada */
 function mudarStyleLetra(tecla){
     document.getElementById(tecla).style.background="#ad4850";
 }
 
+/* Criando a função para trocar a imagem da forca quando errar a letra*/
+function comparaListas(letras){
+    const pos = palavraSecretaSorteada.indeof(letra);
+    if(pos < 0){
+        tentativas--;
+
+        //Apresentando a imagem
+        //Verificando tentativas // mensagem na tela
+    }else{
+        
+        /* Colocar a letra correta na tela */
+        for(i = 0; i < palavraSecretaSorteada.length; i++){
+            if(palavraSecretaSorteada[i] == letra){
+                listaDinamica[i] = letra;
+            }
+        }
+    }
+}
