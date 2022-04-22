@@ -13,7 +13,7 @@ body{
     width: 100vw;
     height: 90vh;
     margin-top: 10px;
-    background-color: #D7DE97;
+    background-color: #e1e3db; /*D7DE97 - EDD68A*/
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -48,8 +48,8 @@ body{
 .letras{
     width: 16px;
     text-align: center;
-    border-bottom: 2px solid #E06C75;
-    color: #ffffff;
+    border-bottom: 2px solid #9e0004; /*E06C75*/
+    color: #161917;
     padding: 2px;
     margin-left: 2px;
     margin-right: 2px;
@@ -73,7 +73,7 @@ body{
     border-radius: 3px;
     border: none;
     color: #fff;
-    background-color: #E06C75;
+    background-color: #9e0004;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 900;
 }
@@ -91,7 +91,7 @@ body{
 /* Estilização da div categoria */
 #categoria{
     margin-top: 30px;
-    color: #E06C75;
+    color: #9e0004;
     text-transform: uppercase;
     font-weight: 900;
 }

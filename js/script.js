@@ -2,7 +2,6 @@ let palavraSecretaCategoria;
 let palavraSecretaSorteada;
 let listaDinamica = [];
 let tentativas = 6;
-let vitoria = true;
 
 /* Lista de palavras e sua categoria */
 const palavras = [
@@ -552,19 +551,22 @@ function verificaLetraEscolhida(letra){
 
 /* Muda o estilo (cor de fundo) das letras para apresentar que aquela tecla já foi usada */
 function mudarStyleLetra(tecla){
-    document.getElementById(tecla).style.background="#ad4850";
+    document.getElementById(tecla).style.background="#70160e";
 }
 
 /* Criando a função para trocar a imagem da forca quando errar a letra*/
 function comparaListas(letra){
     const pos = palavraSecretaSorteada.indexOf(letra)
     if(pos < 0){
-        tentativas--;
+        tentativas--
 
         //Apresentando a imagem
         carregaImagemForca();
-        
-        //Verificando tentativas // mensagem na tela
+
+        if (tentativas == 0){
+            abreModal("OPS!","Não foi dessa vez... A Palavra secreta era <br>" + palavraSecretaSorteada);
+        }
+       
     }else{
 
         /* Colocar a letra correta na tela */
@@ -573,7 +575,9 @@ function comparaListas(letra){
                 listaDinamica[i] = letra;
             }
         }
-
+    }
+        
+        let vitoria = true;
         for(i = 0; i < palavraSecretaSorteada.length; i++){
             if(palavraSecretaSorteada[i] != listaDinamica[i]){
                 vitoria = false;
@@ -581,10 +585,10 @@ function comparaListas(letra){
         }
 
         if(vitoria == true){
-            // imagem na tela
+            // Modal de parabéns
+            abreModal("PARABÉNS!","Você venceu... ");
             tentativas = 0;
         }
-    }
 
 }
 
@@ -620,3 +624,23 @@ function carregaImagemForca(){
         break;
     }
 }
+
+/* Aplicando a modal e suas informações */
+function abreModal(titulo, mensagem){
+    let modalTitulo = document.getElementById("exampleModalLabel");
+    modalTitulo.innerText = titulo;
+
+    let modalBody = document.getElementById("modalBody");
+    modalBody.innerHTML = mensagem;
+
+
+    $("#myModal").modal({
+        show: true
+    });
+}
+
+/* Criando o botão de reiniciar */
+let btnReiniciar = document.querySelector("#btnReiniciar");
+btnReiniciar.addEventListener("click", function(){
+    location.reload();
+})
