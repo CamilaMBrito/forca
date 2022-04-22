@@ -7,7 +7,7 @@ let vitoria = true;
 /* Lista de palavras e sua categoria */
 const palavras = [
     palavra001 = {
-        nome: "ESTADO UNIDOS DA AMERICA",
+        nome: "INGLATERRA",
         CATEGORIA: "PAISES"
     },
 
@@ -32,7 +32,7 @@ const palavras = [
     },
 
     palavra006 = {
-        nome: "COREIA DO SUL",
+        nome: "COREIA",
         CATEGORIA: "PAISES"
     },
     
@@ -42,7 +42,7 @@ const palavras = [
     },
 
     palavra008 = {
-        nome: "REINO UNIDO",
+        nome: "ISRAEL",
         CATEGORIA: "PAISES"
     },
 
@@ -92,7 +92,7 @@ const palavras = [
     },
 
     palavra018 = {
-        nome: "ISRAEL",
+        nome: "AFRICA",
         CATEGORIA: "PAISES"
     },
 
@@ -102,7 +102,7 @@ const palavras = [
     },
 
     palavra020 = {
-        nome: "ARABIA SAUDITA",
+        nome: "DINAMARCA",
         CATEGORIA: "PAISES"
     },
 
@@ -545,7 +545,7 @@ function verificaLetraEscolhida(letra){
         mudarStyleLetra("tecla-"+letra);
         comparaListas(letra);
         montarPalavraNaTela();
-
+        document.getElementById("tecla-" + letra).disabled = true;
     }
     
 }
@@ -560,7 +560,7 @@ function comparaListas(letra){
     const pos = palavraSecretaSorteada.indexOf(letra)
     if(pos < 0){
         tentativas--;
-        
+
         //Apresentando a imagem
         carregaImagemForca();
         
@@ -588,6 +588,7 @@ function comparaListas(letra){
 
 }
 
+/* Criando escolha/caso para trocar a imagem da forca a cada erro */
 function carregaImagemForca(){
     switch(tentativas){
         case 5:  

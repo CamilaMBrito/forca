@@ -78,6 +78,11 @@ body{
     font-weight: 900;
 }
 
+/* Estilização das teclas desativadas */
+.teclas button:disabled{
+    cursor: not-allowed;
+}
+
 /* Estilização dos botões/teclas ao passar o mouse */
 .teclas button:hover{
     transform: scale(1.3);
