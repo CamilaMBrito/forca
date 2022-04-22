@@ -1,6 +1,7 @@
 let palavraSecretaCategoria;
 let palavraSecretaSorteada;
 let listaDinamica = [];
+let tentativas = 6;
 
 const palavras = [
     palavra001 = {
@@ -533,3 +534,15 @@ function montarPalavraNaTela(){
         }
     }
 }
+
+function verificaLetraEscolhida(letra){
+    if (tentativas > 0){
+        mudarStyleLetra("tecla-"+letra);
+    }
+    
+}
+
+function mudarStyleLetra(tecla){
+    document.getElementById(tecla).style.background="#ad4850";
+}
+
